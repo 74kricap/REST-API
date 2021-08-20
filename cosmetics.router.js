@@ -15,7 +15,7 @@ const router = express.Router();
 //Define endpoints
 router.get('/api/cosmetics', (req, res, next) => {
     res.json(cosmetics);
-})
+});
 
 router.get('/api/cosmetics/:id', (req, res, next) => {
     const { id } = req.params;
@@ -26,7 +26,7 @@ router.get('/api/cosmetics/:id', (req, res, next) => {
         res.status(200).json(cosmetic);
     }
 
-})
+});
 
 router.post('/api/cosmetics');
 router.put('/api/cosmetics/:id');
