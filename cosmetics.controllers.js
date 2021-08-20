@@ -16,7 +16,6 @@ const cosmetics = [{
  * @param {NextFunction} next 
  */
 const getCosmetics = (req, res, next) => {
-    throw new Error('');
     res.json(cosmetics);
 }
 

@@ -10,6 +10,9 @@ app.use(express.json());
 //Add resources
 app.use(cosmeticsRouter);
 
+//404 handler
+app.use((req, res) => res.status(404).json('Resource not found...'));
+
 //Error handler
 app.use((err, req, res, next) => {
     console.trace(err);
