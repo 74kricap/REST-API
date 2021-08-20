@@ -19,11 +19,14 @@ app.get('/api/cosmetics', (req, res, next) => {
 })
 
 app.get('/api/cosmetics/:id', (req, res, next) => {
-    const {id} = req.params;
-
+    const { id } = req.params;
     const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
-    
-    res.json(cosmetic);
+    if(!cosmetic){
+        res.status(404).json('Cosmetic with id ${id} was not found!');
+    } else {
+        res.status(200).json(cosmetic);
+    }
+
 })
 
 app.post('/api/cosmetics');
