@@ -2,6 +2,10 @@ GET http://localhost:3000/api/cosmetics/
 
 ###
 
+GET http://localhost:3000/api/cosmetics/2
+
+###
+
 POST http://localhost:3000/api/cosmetics/
 Content-Type: application/json
 
@@ -9,4 +13,15 @@ Content-Type: application/json
     "name": "EyeLiner",
     "color": "Black",
     "price": "129kr"
+}
+
+###
+
+PUT http://localhost:3000/api/cosmetics/3
+Content-Type: application/json
+
+{
+    "name": "Maskara",
+    "color": "Brown",
+    "price": "149kr"
 }

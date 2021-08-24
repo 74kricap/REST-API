@@ -2,7 +2,8 @@ const express = require('express');
 const {
     getCosmetics, 
     getOneCosmetic,
-    saveCosmetic} 
+    saveCosmetic,
+    updateCosmetic} 
     = require('./cosmetics.controllers');
 const { saveValidation } = require('./cosmetics.validation');
 
@@ -15,7 +16,7 @@ const router = express.Router();
 router.get('/api/cosmetics', getCosmetics);
 router.get('/api/cosmetics/:id', getOneCosmetic);
 router.post('/api/cosmetics', saveValidation, saveCosmetic);
-router.put('/api/cosmetics/:id');
+router.put('/api/cosmetics/:id', updateCosmetic);
 router.delete('/api/cosmetics/:id');
 
 //Export the router object

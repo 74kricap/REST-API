@@ -33,5 +33,4 @@ Krav för väl godkänt:
 4. Ett simpelt klient-gränssnitt skall finnas för att anropa API:ets olika endpoints, samt
 visa upp resultatet vid GET anrop
 5. Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt
-Do you have any questions or need something explained in English? - Please feel free to
-ask me during a lecture. Good luck!
+
