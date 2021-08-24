@@ -10,8 +10,9 @@ function checkValidation(req, res, next) {
 }
 
 const saveValidation = [
-    body('name').notEmpty().isLength({ min: 5}).withMessage('Name must be at least 5 chars long'), 
-    body('color').notEmpty().isLength({ min: 3}).withMessage('Color must be at least 3 chars long'),
+    body('name').notEmpty().isLength({ min: 5}).withMessage('Name must be at least 5 chars long!'), 
+    body('color').notEmpty().isLength({ min: 3}).withMessage('Color must be at least 3 chars long!'),
+    body('price').notEmpty().withMessage('Item must have a price!'),
     checkValidation 
 ];
 module.exports = {
