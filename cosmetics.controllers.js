@@ -20,6 +20,17 @@ const getCosmetics = (req, res, next) => {
 }
 
 /**
+ * Save a new cosmetic to the DB
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {NextFunction} next 
+ */
+ const saveCosmetic = (req, res, next) => {
+    cosmetics.push(req.body);
+    res.json(req.body);
+}
+
+/**
  * Responds with the requested cosmetic or nothing if not found
  * @param {Request} req 
  * @param {Response} res 
@@ -38,5 +49,6 @@ const getOneCosmetic = (req, res, next) => {
 
 module.exports = {
     getCosmetics,
-    getOneCosmetic
+    getOneCosmetic,
+    saveCosmetic
 }
