@@ -1,12 +1,11 @@
 const {Request, Response, NextFunction} = require('express');
 
 //In-memory DB
-const cosmeticIdIndex = 1;
+let cosmeticIdIndex = 2;
 const cosmetics = [{
-    id: 0,
+    id: 1,
     name: 'Lipstick',
     color: 'Red'
-
 }];
 
 /**
@@ -26,8 +25,9 @@ const getCosmetics = (req, res, next) => {
  * @param {NextFunction} next 
  */
  const saveCosmetic = (req, res, next) => {
-    cosmetics.push(req.body);
-    res.json(req.body);
+    const cosmetic = { id: cosmeticIdIndex++, ...req.body };
+    cosmetics.push(cosmetic);
+    res.json(cosmetic);
 }
 
 /**
