@@ -1,20 +1,7 @@
 const { Request, Response, NextFunction } = require('express');
 const { saveValidation } = require('./cosmetics.validation');
-
-//In-memory DB
+const { cosmetics} = require('./cosmetics.db');
 let cosmeticIdIndex = 3;
-const cosmetics = [{
-    id: 1,
-    name: 'Lipstick',
-    color: 'Red',
-    price: '199kr'
-},
-{
-    id: 2,
-    name: 'Foundation',
-    color: 'Fairly Light',
-    price: '399kr'
-}];
 
 /**
  * Responds with all cosmetics from DB

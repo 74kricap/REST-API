@@ -28,4 +28,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/cosmetics/2
+DELETE http://localhost:3000/api/cosmetics/4
