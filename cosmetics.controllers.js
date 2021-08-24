@@ -52,7 +52,6 @@ const getOneCosmetic = (req, res, next) => {
     } else {
         res.status(200).json(cosmetic);
     }
-
 }
 
 /**
@@ -65,7 +64,7 @@ const updateCosmetic = (req, res, next) => {
     const { id } = req.params;
     const { name, color, price } = req.body;
     const index = cosmetics.findIndex(cosmetic => cosmetic.id == id);
-    if(index >= 1){
+    if (index >= 1) {
         let cosmetic = cosmetics[index];
         cosmetic.name = name;
         cosmetic.color = color;
@@ -73,10 +72,24 @@ const updateCosmetic = (req, res, next) => {
         res.json(cosmetics);
         return
 
-    } 
+    }
     res.status(404).json('Cosmetic with id ${id} was not found!');
-    
-   
+}
+
+/**
+ * Deletes the selected cosmetic
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {NextFunction} next 
+ */
+const deleteCosmetic = (req, res, next) => {
+    const { id } = req.params;
+    const index = cosmetics.findIndex(cosmetic => cosmetic.id == id);
+    if (!index) {
+        res.status(404).json('Cosmetic with id ${id} was not found!');
+    }
+    cosmetics.splice(index, 1);
+    res.json(cosmetics);
 }
 
 
@@ -84,5 +97,6 @@ module.exports = {
     getCosmetics,
     getOneCosmetic,
     saveCosmetic,
-    updateCosmetic
+    updateCosmetic,
+    deleteCosmetic
 }

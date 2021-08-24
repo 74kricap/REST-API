@@ -3,7 +3,8 @@ const {
     getCosmetics, 
     getOneCosmetic,
     saveCosmetic,
-    updateCosmetic} 
+    updateCosmetic,
+    deleteCosmetic} 
     = require('./cosmetics.controllers');
 const { saveValidation } = require('./cosmetics.validation');
 
@@ -17,7 +18,7 @@ router.get('/api/cosmetics', getCosmetics);
 router.get('/api/cosmetics/:id', getOneCosmetic);
 router.post('/api/cosmetics', saveValidation, saveCosmetic);
 router.put('/api/cosmetics/:id', updateCosmetic);
-router.delete('/api/cosmetics/:id');
+router.delete('/api/cosmetics/:id', deleteCosmetic);
 
 //Export the router object
 module.exports = router;
