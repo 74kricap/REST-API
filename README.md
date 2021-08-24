@@ -25,6 +25,7 @@ Krav för godkänt:
 4. Git & GitHub har använts
 5. Projektmappen innehåller en README.md fil - (läs ovan för mer info)
 6. Uppgiften lämnas in i tid!
+
 Krav för väl godkänt:
 1. Alla punkter för godkänt är uppfyllda
 2. All data skall vara sparad i en JSON-fil istället för i serverfilen

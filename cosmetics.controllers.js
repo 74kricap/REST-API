@@ -5,7 +5,8 @@ let cosmeticIdIndex = 2;
 const cosmetics = [{
     id: 1,
     name: 'Lipstick',
-    color: 'Red'
+    color: 'Red',
+    price: '199kr'
 }];
 
 /**
