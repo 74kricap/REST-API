@@ -49,11 +49,12 @@ const getOneCosmetic = (req, res, next) => {
  */
 const updateCosmetic = (req, res, next) => {
     const { id } = req.params;
-    const { name, color, price } = req.body;
+    const { brand, name, color, price } = req.body;
     const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
     if (!cosmetic) {
         res.status(404).json('Cosmetic with id ${id} was not found!');
     } else {
+        cosmetic.brand = brand;
         cosmetic.name = name;
         cosmetic.color = color;
         cosmetic.price = price;
