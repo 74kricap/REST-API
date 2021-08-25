@@ -2,7 +2,7 @@ GET http://localhost:3000/api/cosmetics/
 
 ###
 
-GET http://localhost:3000/api/cosmetics/2
+GET http://localhost:3000/api/cosmetics/caf40950-05d0-11ec-aa81-f95f8f736dad
 
 ###
 
@@ -10,20 +10,22 @@ POST http://localhost:3000/api/cosmetics/
 Content-Type: application/json
 
 {
+    "brand": "Chanel",
     "name": "EyeLiner",
     "color": "Black",
-    "price": "129kr"
+    "price": "470kr"
 }
 
 ###
 
-PUT http://localhost:3000/api/cosmetics/3
+PUT http://localhost:3000/api/cosmetics/e53a7500-05d1-11ec-aa81-f95f8f736dad
 Content-Type: application/json
 
 {
+    "brand": "Filorga",
     "name": "Maskara",
     "color": "Brown",
-    "price": "149kr"
+    "price": "625kr"
 }
 
 ###
