@@ -1,7 +1,7 @@
+const uuid = require('uuid');
 const { Request, Response, NextFunction } = require('express');
 const { saveValidation } = require('./cosmetics.validation');
 const { cosmetics} = require('./cosmetics.db');
-let cosmeticIdIndex = 3;
 
 /**
  * Responds with all cosmetics from DB
@@ -20,7 +20,7 @@ const getCosmetics = (req, res, next) => {
  * @param {NextFunction} next 
  */
 const saveCosmetic = (req, res, next) => {
-    const cosmetic = { id: cosmeticIdIndex++, ...req.body };
+    const cosmetic = { id: uuid.v1(), ...req.body };
     cosmetics.push(cosmetic);
     res.json(cosmetic);
 }
