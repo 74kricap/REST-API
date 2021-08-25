@@ -12,6 +12,13 @@ const cosmetics = [{
     name: 'Foundation',
     color: 'Fairly Light',
     price: '2399kr'
+},
+{
+    id: "e91f21e0-05d4-11ec-b443-5d85ec04f8ee",
+    brand: 'Sensai',
+    name: 'Powder',
+    color: 'Translucent',
+    price: '485kr'
 }];
 
 module.exports = {

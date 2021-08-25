@@ -11,8 +11,6 @@ const { saveValidation } = require('./cosmetics.validation');
 //Create the router object
 const router = express.Router();
 
-
-
 //Define endpoints
 router.get('/api/cosmetics', getCosmetics);
 router.get('/api/cosmetics/:id', getOneCosmetic);

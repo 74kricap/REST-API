@@ -50,17 +50,16 @@ const getOneCosmetic = (req, res, next) => {
 const updateCosmetic = (req, res, next) => {
     const { id } = req.params;
     const { name, color, price } = req.body;
-    const index = cosmetics.findIndex(cosmetic => cosmetic.id == id);
-    if (index >= 1) {
-        let cosmetic = cosmetics[index];
+    const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
+    if (!cosmetic) {
+        res.status(404).json('Cosmetic with id ${id} was not found!');
+    } else {
         cosmetic.name = name;
         cosmetic.color = color;
         cosmetic.price = price;
+        
         res.json(cosmetics);
-        return
-
-    }
-    res.status(404).json('Cosmetic with id ${id} was not found!');
+    }  
 }
 
 /**
@@ -78,7 +77,6 @@ const deleteCosmetic = (req, res, next) => {
     cosmetics.splice(index, 1);
     res.json(cosmetics);
 }
-
 
 module.exports = {
     getCosmetics,

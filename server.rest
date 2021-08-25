@@ -2,7 +2,7 @@ GET http://localhost:3000/api/cosmetics/
 
 ###
 
-GET http://localhost:3000/api/cosmetics/caf40950-05d0-11ec-aa81-f95f8f736dad
+GET http://localhost:3000/api/cosmetics/5968d290-05c9-11ec-824b-15fd2ebb3405
 
 ###
 
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/cosmetics/e53a7500-05d1-11ec-aa81-f95f8f736dad
+PUT http://localhost:3000/api/cosmetics/5968d290-05c9-11ec-824b-15fd2ebb3405
 Content-Type: application/json
 
 {
@@ -30,4 +30,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/cosmetics/4
+DELETE http://localhost:3000/api/cosmetics/e91f21e0-05d4-11ec-b443-5d85ec04f8ee
