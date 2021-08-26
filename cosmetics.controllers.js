@@ -35,7 +35,7 @@ const getOneCosmetic = (req, res, next) => {
     const { id } = req.params;
     const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
     if (!cosmetic) {
-        res.status(404).json('Cosmetic with id ${id} was not found!');
+        res.status(404).json(`Cosmetic with id ${id} was not found!`);
     } else {
         res.status(200).json(cosmetic);
     }
@@ -52,7 +52,7 @@ const updateCosmetic = (req, res, next) => {
     const { brand, name, color, price } = req.body;
     const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
     if (!cosmetic) {
-        res.status(404).json('Cosmetic with id ${id} was not found!');
+        res.status(404).json(`Cosmetic with id ${id} was not found!`);
     } else {
         cosmetic.brand = brand;
         cosmetic.name = name;
@@ -73,7 +73,7 @@ const deleteCosmetic = (req, res, next) => {
     const { id } = req.params;
     const index = cosmetics.findIndex(cosmetic => cosmetic.id == id);
     if (!index) {
-        res.status(404).json('Cosmetic with id ${id} was not found!');
+        res.status(404).json(`Cosmetic with id ${id} was not found!`);
     }
     cosmetics.splice(index, 1);
     res.json(cosmetics);
