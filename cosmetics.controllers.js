@@ -1,7 +1,8 @@
 const uuid = require('uuid');
 const { Request, Response, NextFunction } = require('express');
 const { saveValidation } = require('./cosmetics.validation');
-const { cosmetics} = require('./cosmetics.db');
+const { cosmetics } = require('./data/cosmetics.db.json');
+const fs = require('fs');
 
 /**
  * Responds with all cosmetics from DB
@@ -10,7 +11,13 @@ const { cosmetics} = require('./cosmetics.db');
  * @param {NextFunction} next 
  */
 const getCosmetics = (req, res, next) => {
-    res.json(cosmetics);
+    const datapath = './data/cosmetics.db.json'
+    fs.readFile(datapath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(404).json('No cosmetics found!');
+        }
+        res.send(JSON.parse(data));
+    });
 }
 
 /**
@@ -58,9 +65,9 @@ const updateCosmetic = (req, res, next) => {
         cosmetic.name = name;
         cosmetic.color = color;
         cosmetic.price = price;
-        
+
         res.json(cosmetics);
-    }  
+    }
 }
 
 /**
