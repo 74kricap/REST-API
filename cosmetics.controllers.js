@@ -21,6 +21,33 @@ const getCosmetics = (req, res, next) => {
 }
 
 /**
+ * Responds with the requested cosmetic or nothing if not found
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {NextFunction} next 
+ */
+const getOneCosmetic = (req, res, next) => {
+    const { id } = req.params;
+    fs.readFile(dataPath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(404).json('No cosmetics found!');
+        }
+        const newCosmetic = JSON.parse(data);
+        const cosmetic = newCosmetic.find(cosmetic => cosmetic.id == id);
+        if (!cosmetic) {
+            res.status(404).json(`Cosmetic with id ${id} was not found!`);
+        }
+        fs.writeFile(dataPath, JSON.stringify(newCosmetic, null, 2), (err) => {
+            if (err) {
+                res.status(500).json('Someting went wrong!');
+                return
+            }
+            res.status(200).json(cosmetic);
+        });
+    });
+}
+
+/**
  * Save a new cosmetic to the DB
  * @param {Request} req 
  * @param {Response} res 
@@ -48,24 +75,6 @@ const postAndSaveCosmetic = (req, res, next) => {
 }
 
 
-/**
- * Responds with the requested cosmetic or nothing if not found
- * @param {Request} req 
- * @param {Response} res 
- * @param {NextFunction} next 
- */
-const getOneCosmetic = (req, res, next) => {
-    const { id } = req.params;
-    // readfile
-    // ny array rad 41-46
-    //cosnetics.find = newCosmetic.find
-    const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
-    if (!cosmetic) {
-        res.status(404).json(`Cosmetic with id ${id} was not found!`);
-    } else {
-        res.status(200).json(cosmetic);
-    }
-}
 
 /**
  * Updates the selected cosmetic
@@ -96,7 +105,7 @@ const updateCosmetic = (req, res, next) => {
  * @param {NextFunction} next 
  */
 const deleteCosmetic = (req, res, next) => {
-    
+
     const { id } = req.params;
     const index = cosmetics.findIndex(cosmetic => cosmetic.id == id);
     if (!index) {
