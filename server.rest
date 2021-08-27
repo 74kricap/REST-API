@@ -22,9 +22,9 @@ PUT http://localhost:3000/api/cosmetics/5968d290-05c9-11ec-824b-15fd2ebb3405
 Content-Type: application/json
 
 {
-    "brand": "Filorga",
-    "name": "Maskara",
-    "color": "Brown",
+    "brand": "Chanel",
+    "name": "Serum",
+    "color": "Transparent",
     "price": "625kr"
 }
 

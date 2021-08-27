@@ -74,8 +74,6 @@ const postAndSaveCosmetic = (req, res, next) => {
     });
 }
 
-
-
 /**
  * Updates the selected cosmetic
  * @param {Request} req 
@@ -84,18 +82,29 @@ const postAndSaveCosmetic = (req, res, next) => {
  */
 const updateCosmetic = (req, res, next) => {
     const { id } = req.params;
-    const { brand, name, color, price } = req.body;
-    const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
-    if (!cosmetic) {
-        res.status(404).json(`Cosmetic with id ${id} was not found!`);
-    } else {
-        cosmetic.brand = brand;
-        cosmetic.name = name;
-        cosmetic.color = color;
-        cosmetic.price = price;
+    fs.readFile(dataPath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(404).json('No cosmetics found!');
+        }
+        const newCosmetic = JSON.parse(data);
+        const cosmetic = newCosmetic.find(cosmetic => cosmetic.id == id);
+        if (!cosmetic) {
+            res.status(404).json(`Cosmetic with id ${id} was not found!`);
+        } else {
+            cosmetic.brand = req.body.brand;
+            cosmetic.name = req.body.name;
+            cosmetic.color = req.body.color;
+            cosmetic.price = req.body.price;
 
-        res.json(cosmetics);
-    }
+        }
+        fs.writeFile(dataPath, JSON.stringify(newCosmetic, null, 2), (err) => {
+            if (err) {
+                res.status(500).json('Someting went wrong!');
+                return
+            }
+            res.status(200).json(cosmetic);
+        });
+    });
 }
 
 /**

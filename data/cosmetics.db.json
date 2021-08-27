@@ -1,10 +1,10 @@
 [
   {
     "id": "49eb7620-070d-11ec-a5b2-2f574789288c",
-    "brand": "Chanel",
-    "name": "EyeLiner",
-    "color": "Black",
-    "price": "470kr"
+    "brand": "Filorga",
+    "name": "Maskara",
+    "color": "Brown",
+    "price": "625kr"
   },
   {
     "id": "4f09e2e0-070d-11ec-9183-edc158b72443",
@@ -15,10 +15,10 @@
   },
   {
     "id": "5968d290-05c9-11ec-824b-15fd2ebb3405",
-    "brand": "Estée Lauder",
-    "name": "Lipstick",
-    "color": "Red",
-    "price": "349kr"
+    "brand": "Chanel",
+    "name": "Serum",
+    "color": "Transparent",
+    "price": "625kr"
   },
   {
     "id": "19e9f3c0-05cd-11ec-824b-15fd2ebb3405",
