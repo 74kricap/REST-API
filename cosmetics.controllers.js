@@ -3,6 +3,7 @@ const { Request, Response, NextFunction } = require('express');
 const { saveValidation } = require('./cosmetics.validation');
 const { cosmetics } = require('./data/cosmetics.db.json');
 const fs = require('fs');
+const dataPath = './data/cosmetics.db.json';
 
 /**
  * Responds with all cosmetics from DB
@@ -11,8 +12,7 @@ const fs = require('fs');
  * @param {NextFunction} next 
  */
 const getCosmetics = (req, res, next) => {
-    const datapath = './data/cosmetics.db.json'
-    fs.readFile(datapath, 'utf8', (err, data) => {
+    fs.readFile(dataPath, 'utf8', (err, data) => {
         if (err) {
             res.status(404).json('No cosmetics found!');
         }
@@ -26,11 +26,27 @@ const getCosmetics = (req, res, next) => {
  * @param {Response} res 
  * @param {NextFunction} next 
  */
-const saveCosmetic = (req, res, next) => {
+const postAndSaveCosmetic = (req, res, next) => {
     const cosmetic = { id: uuid.v1(), ...req.body };
-    cosmetics.push(cosmetic);
-    res.json(cosmetic);
+    fs.readFile(dataPath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).json('Someting went wrong!');
+            return;
+        }
+        const newCosmetic = JSON.parse(data);
+        newCosmetic.push(cosmetic);
+
+        fs.writeFile(dataPath, JSON.stringify(newCosmetic, null, 2), (err) => {
+            if (err) {
+                res.status(500).json('Someting went wrong!');
+                return
+            }
+            res.status(200).json(cosmetic);
+        });
+
+    });
 }
+
 
 /**
  * Responds with the requested cosmetic or nothing if not found
@@ -40,6 +56,9 @@ const saveCosmetic = (req, res, next) => {
  */
 const getOneCosmetic = (req, res, next) => {
     const { id } = req.params;
+    // readfile
+    // ny array rad 41-46
+    //cosnetics.find = newCosmetic.find
     const cosmetic = cosmetics.find(cosmetic => cosmetic.id == id);
     if (!cosmetic) {
         res.status(404).json(`Cosmetic with id ${id} was not found!`);
@@ -77,6 +96,7 @@ const updateCosmetic = (req, res, next) => {
  * @param {NextFunction} next 
  */
 const deleteCosmetic = (req, res, next) => {
+    
     const { id } = req.params;
     const index = cosmetics.findIndex(cosmetic => cosmetic.id == id);
     if (!index) {
@@ -89,7 +109,7 @@ const deleteCosmetic = (req, res, next) => {
 module.exports = {
     getCosmetics,
     getOneCosmetic,
-    saveCosmetic,
+    postAndSaveCosmetic,
     updateCosmetic,
     deleteCosmetic
 }

@@ -2,7 +2,7 @@ const express = require('express');
 const {
     getCosmetics, 
     getOneCosmetic,
-    saveCosmetic,
+    postAndSaveCosmetic,
     updateCosmetic,
     deleteCosmetic} 
     = require('./cosmetics.controllers');
@@ -14,7 +14,7 @@ const router = express.Router();
 //Define endpoints
 router.get('/api/cosmetics', getCosmetics);
 router.get('/api/cosmetics/:id', getOneCosmetic);
-router.post('/api/cosmetics', saveValidation, saveCosmetic);
+router.post('/api/cosmetics', saveValidation, postAndSaveCosmetic);
 router.put('/api/cosmetics/:id', updateCosmetic);
 router.delete('/api/cosmetics/:id', deleteCosmetic);
 

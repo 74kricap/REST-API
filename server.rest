@@ -10,10 +10,10 @@ POST http://localhost:3000/api/cosmetics/
 Content-Type: application/json
 
 {
-    "brand": "Chanel",
+    "brand": "Filorga",
     "name": "EyeLiner",
-    "color": "Black",
-    "price": "470kr"
+    "color": "Gray",
+    "price": "650kr"
 }
 
 ###
@@ -30,4 +30,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/cosmetics/e91f21e0-05d4-11ec-b443-5d85ec04f8ee
+DELETE http://localhost:3000/api/cosmetics/"49eb7620-070d-11ec-a5b2-2f574789288c"
