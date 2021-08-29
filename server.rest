@@ -18,7 +18,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/cosmetics/5968d290-05c9-11ec-824b-15fd2ebb3405
+PUT http://localhost:3000/api/cosmetics/4f09e2e0-070d-11ec-9183-edc158b72443
 Content-Type: application/json
 
 {
@@ -30,4 +30,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/cosmetics/49eb7620-070d-11ec-a5b2-2f574789288c
+DELETE http://localhost:3000/api/cosmetics/a4df1fc0-0710-11ec-a22b-75d82e9e0a0e

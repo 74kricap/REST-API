@@ -3,7 +3,7 @@ const { Request, Response, NextFunction } = require('express');
 const { saveValidation } = require('./cosmetics.validation');
 const { cosmetics } = require('./data/cosmetics.db.json');
 const fs = require('fs');
-const { isContext } = require('vm');
+//const { isContext } = require('vm');
 const dataPath = './data/cosmetics.db.json';
 
 /**
@@ -87,7 +87,7 @@ const updateCosmetic = (req, res, next) => {
         if (err) {
             res.status(404).json('No cosmetics found!');
         }
-        const newCosmetic = JSON.parse(data);
+        let newCosmetic = JSON.parse(data);
         const cosmetic = newCosmetic.find(cosmetic => cosmetic.id == id);
         if (!cosmetic) {
             res.status(404).json(`Cosmetic with id ${id} was not found!`);
@@ -126,7 +126,7 @@ const deleteCosmetic = (req, res, next) => {
         const deleteCosmetic = newCosmetic.find(cosmetic => cosmetic.id == id);
         if (deleteCosmetic) {
             newCosmetic = newCosmetic.filter(cosmetic => cosmetic.id !== id);
-            res.status(200).send(`Cosmetic with id:${id} removed`);
+            res.status(200).send(`Cosmetic with id:${id} was removed`);
         } else {
             res.status(404).json(`Cosmetic with id ${id} was not found!`);
         }
@@ -136,7 +136,6 @@ const deleteCosmetic = (req, res, next) => {
                 res.status(500).json('Someting went wrong!');
                 return
             }
-            res.status(200).json(cosmetic);
         });
     });
 }
