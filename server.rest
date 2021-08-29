@@ -2,7 +2,7 @@ GET http://localhost:3000/api/cosmetics/
 
 ###
 
-GET http://localhost:3000/api/cosmetics/5968d290-05c9-11ec-824b-15fd2ebb3405
+GET http://localhost:3000/api/cosmetics/69c56470-0743-11ec-ac2b-c1e9492da0e8
 
 ###
 
@@ -10,24 +10,24 @@ POST http://localhost:3000/api/cosmetics/
 Content-Type: application/json
 
 {
-    "brand": "Chanel",
+    "brand": "Filorga",
     "name": "EyeLiner",
-    "color": "Black",
-    "price": "470kr"
+    "color": "Gray",
+    "price": "650kr"
 }
 
 ###
 
-PUT http://localhost:3000/api/cosmetics/5968d290-05c9-11ec-824b-15fd2ebb3405
+PUT http://localhost:3000/api/cosmetics/4f09e2e0-070d-11ec-9183-edc158b72443
 Content-Type: application/json
 
 {
-    "brand": "Filorga",
-    "name": "Maskara",
-    "color": "Brown",
+    "brand": "Chanel",
+    "name": "Serum",
+    "color": "Transparent",
     "price": "625kr"
 }
 
 ###
 
-DELETE http://localhost:3000/api/cosmetics/e91f21e0-05d4-11ec-b443-5d85ec04f8ee
+DELETE http://localhost:3000/api/cosmetics/a4df1fc0-0710-11ec-a22b-75d82e9e0a0e

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "49eb7620-070d-11ec-a5b2-2f574789288c",
+    "brand": "Filorga",
+    "name": "Maskara",
+    "color": "Brown",
+    "price": "625kr"
+  },
+  {
+    "id": "4f09e2e0-070d-11ec-9183-edc158b72443",
+    "brand": "Chanel",
+    "name": "EyeLiner",
+    "color": "Black",
+    "price": "470kr"
+  },
+  {
+    "id": "5968d290-05c9-11ec-824b-15fd2ebb3405",
+    "brand": "Chanel",
+    "name": "Serum",
+    "color": "Transparent",
+    "price": "625kr"
+  },
+  {
+    "id": "19e9f3c0-05cd-11ec-824b-15fd2ebb3405",
+    "brand": "La Prairie",
+    "name": "Foundation",
+    "color": "Fairly Light",
+    "price": "2399kr"
+  },
+  {
+    "id": "e91f21e0-05d4-11ec-b443-5d85ec04f8ee",
+    "brand": "Sensai",
+    "name": "Powder",
+    "color": "Translucent",
+    "price": "485kr"
+  }
+]
